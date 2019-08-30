@@ -14,13 +14,14 @@ import shutil
 torch.backends.cudnn.benchmark = True # to speed up the
 DO_MiddleBurryOther = True  # Runs code if true
 
-MB_Other_DATA = "./MiddleBurySet/other-data/"
-MB_Other_RESULT = "./MiddleBurySet/other-result-author/"
-MB_Other_GT = "./MiddleBurySet/other-gt-interp/"
 
-MB_Other_DATA = "./Notebooks/data/2_RUE_540x960"
-MB_Other_RESULT = ".Notebooks/data/2_RUE_540x960/output"
-MB_Other_GT = "./MiddleBurySet/2_RUE_540x960/other_gt_interp/"
+# MB_Other_DATA = "./MiddleBurySet/other-data/"
+# MB_Other_RESULT = "./MiddleBurySet/other-result-author/"
+# MB_Other_GT = "./MiddleBurySet/other-gt-interp/"
+
+
+MB_Other_DATA = "notebooks/data/2_RUE_540x960"
+MB_Other_RESULT = "notebooks/data/2_RUE_540x960/output"
 
 
 if not os.path.exists(MB_Other_RESULT):
@@ -82,7 +83,7 @@ if DO_MiddleBurryOther:
         os.mkdir(os.path.join(gen_dir, dir))
         arguments_strFirst = os.path.join(MB_Other_DATA, dir, "00001.jpg")
         arguments_strSecond = os.path.join(MB_Other_DATA, dir, "00002.jpg")
-        gt_path = os.path.join(MB_Other_GT, dir, "frame10i11.png")
+        # gt_path = os.path.join(MB_Other_GT, dir, "frame10i11.png")  # Ground truth for training
 
         X0 =  torch.from_numpy( np.transpose(imread(arguments_strFirst) , (2,0,1)).astype("float32")/ 255.0).type(dtype)
         X1 =  torch.from_numpy( np.transpose(imread(arguments_strSecond) , (2,0,1)).astype("float32")/ 255.0).type(dtype)
