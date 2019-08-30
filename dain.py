@@ -81,8 +81,8 @@ if DO_MiddleBurryOther:
     for dir in subdir: 
         print(dir)
         os.mkdir(os.path.join(gen_dir, dir))
-        arguments_strFirst = os.path.join(MB_Other_DATA, dir, "00001.jpg")
-        arguments_strSecond = os.path.join(MB_Other_DATA, dir, "00002.jpg")
+        arguments_strFirst = os.path.join(MB_Other_DATA, "00001.jpg")
+        arguments_strSecond = os.path.join(MB_Other_DATA, "00002.jpg")
         # gt_path = os.path.join(MB_Other_GT, dir, "frame10i11.png")  # Ground truth for training
 
         X0 =  torch.from_numpy( np.transpose(imread(arguments_strFirst) , (2,0,1)).astype("float32")/ 255.0).type(dtype)
